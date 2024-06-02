@@ -1,22 +1,22 @@
-package com.example.es_github
+@file:Suppress("FunctionName")
+
+package com.example.esgithub
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.es_github.ui.theme.Es_githubTheme
+import com.example.esgithub.ui.theme.EsgithubTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Es_githubTheme {
+            EsgithubTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
                     Greeting("Android")
                 }
@@ -33,7 +33,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Es_githubTheme {
+    EsgithubTheme {
         Greeting("Android")
     }
 }

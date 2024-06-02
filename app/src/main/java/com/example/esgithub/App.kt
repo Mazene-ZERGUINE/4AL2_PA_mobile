@@ -1,10 +1,9 @@
-package com.example.es_github
+package com.example.esgithub
 
 import android.app.Application
-import com.example.es_github.di.init
+import com.example.esgithub.di.init
 
-
-class App: Application() {
+class App : Application() {
     override fun onCreate() {
         super.onCreate()
         init(this)
