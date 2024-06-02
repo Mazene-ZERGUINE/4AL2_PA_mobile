@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,jetbrains,macos,intellij,windows,linux,osx
 # Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,jetbrains,macos,intellij,windows,linux,osx
 
+# js #
+node_modules/
+
 ### Android ###
 # Gradle files
 .gradle/

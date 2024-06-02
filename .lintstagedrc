@@ -1,0 +1,4 @@
+{
+    "app/src/**/*.xml": ["prettier --write"],
+    "app/src/**/*.{kt,kts}": ["ktlint --format"]
+}
