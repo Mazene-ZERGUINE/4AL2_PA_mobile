@@ -81,6 +81,5 @@ dependencies {
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
     // shared perfs
-    implementation ("androidx.security:security-crypto:1.1.0-alpha03")
-
+    implementation("androidx.security:security-crypto:1.1.0-alpha03")
 }

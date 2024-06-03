@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 11
+    - name: set up JDK
       uses: actions/setup-java@v3
       with:
         java-version: '17'
@@ -23,5 +23,3 @@ jobs:
       run: ./gradlew build
     - name: KTLint check
       run: ./gradlew ktlintCheck
-    - name: Build with Gradle
-      run: ./gradlew build
