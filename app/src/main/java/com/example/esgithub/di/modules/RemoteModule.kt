@@ -1,7 +1,7 @@
-package com.example.es_github.di.modules
+package com.example.esgithub.di.modules
 
 import android.content.Context
-import com.example.es_github.utils.AuthInterceptor
+import com.example.esgithub.utils.AuthInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
@@ -15,11 +15,11 @@ import java.util.concurrent.TimeUnit
 const val API_URL = "192.168.0.2"
 const val API_SERVICE = "apiService"
 
-
-internal val remoteModule = module {
-    single(named(API_SERVICE)) { createRetrofitClient(get(), API_URL)}
-    single { createOkHttpClient(androidContext()) }
-}
+internal val remoteModule =
+    module {
+        single(named(API_SERVICE)) { createRetrofitClient(get(), API_URL) }
+        single { createOkHttpClient(androidContext()) }
+    }
 
 fun createOkHttpClient(context: Context): OkHttpClient {
     return OkHttpClient.Builder()
@@ -29,7 +29,10 @@ fun createOkHttpClient(context: Context): OkHttpClient {
         .build()
 }
 
-fun createRetrofitClient(client: OkHttpClient, apiUrl: String): Retrofit {
+fun createRetrofitClient(
+    client: OkHttpClient,
+    apiUrl: String
+): Retrofit {
     val gsonConverter =
         GsonConverterFactory.create(
             GsonBuilder().create()

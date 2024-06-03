@@ -1,4 +1,4 @@
-package com.example.es_github.ui.theme
+package com.example.esgithub.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

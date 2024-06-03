@@ -1,0 +1,35 @@
+{
+  "name": "esgithub",
+  "version": "1.0.0",
+  "main": "",
+  "scripts": {
+    "ktlint:check": "run-script-os",
+    "ktlint:check:macos": "./gradlew ktlintCheck",
+    "ktlint:check:nix": "./gradlew ktlintCheck",
+    "ktlint:check:windows": "gradlew ktlintCheck",
+    "ktlint:check:default": "./gradlew ktlintCheck",
+    "ktlint:format": "run-script-os",
+    "ktlint:format:macos": "./gradlew ktlintFormat",
+    "ktlint:format:nix": "./gradlew ktlintFormat",
+    "ktlint:format:windows": "gradlew ktlintFormat",
+    "ktlint:format:default": "./gradlew ktlintFormat",
+    "prepare": "husky",
+    "prettier:format": "prettier --write \"app/src/**/*.xml\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.3.0",
+    "prettier-plugin-kotlin": "^2.1.0",
+    "run-script-os": "^1.1.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

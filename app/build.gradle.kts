@@ -1,14 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
-    namespace = "com.example.es_github"
+    namespace = "com.example.esgithub"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.es_github"
+        applicationId = "com.example.esgithub"
         minSdk = 23
         targetSdk = 33
         versionCode = 1

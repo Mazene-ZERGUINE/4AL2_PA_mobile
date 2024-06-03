@@ -1,8 +1,8 @@
-package com.example.es_github.di
+package com.example.esgithub.di
 
 import android.content.Context
-import com.example.es_github.di.modules.coreModule
-import com.example.es_github.di.modules.remoteModule
+import com.example.esgithub.di.modules.coreModule
+import com.example.esgithub.di.modules.remoteModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
@@ -20,4 +20,3 @@ fun init(context: Context) {
         loadKoinModules(modules)
     }
 }
-

@@ -1,4 +1,4 @@
-package com.example.es_github.utils
+package com.example.esgithub.utils
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -10,9 +10,10 @@ object SecureStorage {
     private const val KEY = "token"
 
     private fun getEncryptedSharedPreferences(context: Context): SharedPreferences {
-        val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
+        val masterKey =
+            MasterKey.Builder(context)
+                .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                .build()
 
         return EncryptedSharedPreferences.create(
             context,
@@ -23,7 +24,10 @@ object SecureStorage {
         )
     }
 
-    fun saveToken(context: Context, token: String) {
+    fun saveToken(
+        context: Context,
+        token: String
+    ) {
         val encryptedPrefs = getEncryptedSharedPreferences(context)
         encryptedPrefs.edit().putString(KEY, token).apply()
     }
