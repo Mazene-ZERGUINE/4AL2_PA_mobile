@@ -15,5 +15,3 @@ data class SignupRequest(
     private val password: String,
     private val userName: String
 )
-
-data class SignupResponse(private val success: Boolean)
