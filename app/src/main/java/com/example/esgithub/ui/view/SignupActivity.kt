@@ -1,4 +1,4 @@
-package com.example.esgithub.ui
+package com.example.esgithub.ui.view
 
 import android.content.Intent
 import android.os.Bundle

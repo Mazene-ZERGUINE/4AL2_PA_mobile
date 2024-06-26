@@ -1,4 +1,4 @@
-package com.example.esgithub.ui
+package com.example.esgithub.ui.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.esgithub.MainActivity
 import com.example.esgithub.R
 import com.example.esgithub.di.injectModuleDependencies
 import com.example.esgithub.di.parseAndInjectConfiguration
@@ -83,8 +84,8 @@ class LoginActivity : AppCompatActivity() {
             )*/
             Log.d("login", token)
             TokenManager.storeAccessToken(this, loginResponse.getToken())
-            /*val mainActivityIntent = Intent(this, MainActivity::class.java)
-            startActivity(mainActivityIntent)*/
+            val mainActivityIntent = Intent(this, MainActivity::class.java)
+            startActivity(mainActivityIntent)
         }
     }
 

@@ -8,17 +8,31 @@
 	tools:context=".MainActivity"
 >
 
-    <TextView
+    <androidx.fragment.app.FragmentContainerView
+		android:id="@+id/host_frag"
+		android:name="androidx.navigation.fragment.NavHostFragment"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="main page"
+		android:layout_height="match_parent"
+		app:navGraph="@navigation/nav_graph"
+		app:defaultNavHost="true"
+	/>
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+		android:id="@+id/bottom_navigation_view"
+		android:layout_width="350dp"
+		android:layout_height="80dp"
+		android:layout_gravity="center_horizontal|bottom"
+		app:itemBackground="@android:color/transparent"
+		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-	>
-
-    </TextView>
-
+		android:scrollIndicators="left"
+		app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"
+		app:menu="@menu/bottom_nav"
+	/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
