@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".ui.LoginActivity"
+>
+
+
+    <TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="20dp"
+		android:text="Connectez vous à votre compte"
+		android:textColor="@color/black"
+		android:lineHeight="40dp"
+		android:textSize="30sp"
+		android:paddingHorizontal="20dp"
+		app:layout_constraintBottom_toTopOf="@+id/emailLayout"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+	/>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/emailLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:hintTextColor="@color/black"
+		android:textColorHint="@color/black"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginTop="232dp"
+		app:boxBackgroundMode="none"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+	>
+
+        <com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/emailEt"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="Adress email"
+			android:textSize="20dp"
+			android:textColor="@color/black"
+			android:paddingStart="0dp"
+			android:inputType="textEmailAddress"
+		/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+		android:layout_width="match_parent"
+		android:layout_height="2dp"
+		android:layout_below="@id/emailLayout"
+		android:layout_marginHorizontal="20dp"
+		app:layout_constraintBottom_toBottomOf="@+id/emailLayout"
+	/>
+
+    <com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/passwordLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="20dp"
+		app:boxBackgroundMode="none"
+		android:layout_marginTop="24dp"
+		android:textColorHint="@color/black"
+		app:hintTextColor="@android:color/white"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.5"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/emailLayout"
+		app:passwordToggleEnabled="true"
+		app:passwordToggleTint="@color/black"
+	>
+
+        <com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/passET"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="Mot de pass"
+			android:textSize="20dp"
+			android:textColor="@color/black"
+			android:paddingStart="0dp"
+			android:inputType="textPassword"
+		/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+		android:layout_width="match_parent"
+		android:layout_height="2dp"
+		android:textSize="20dp"
+		android:layout_below="@id/emailLayout"
+		android:layout_marginHorizontal="20dp"
+		app:layout_constraintBottom_toBottomOf="@+id/passwordLayout"
+	/>
+
+    <androidx.appcompat.widget.AppCompatButton
+		android:id="@+id/button"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="20dp"
+		android:text="Connexion"
+		android:textColor="@color/black"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
+		app:layout_constraintVertical_bias="0.23"
+	/>
+
+    <LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:layout_marginTop="5dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/button"
+		app:layout_constraintVertical_bias="0.0"
+	>
+        <TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Pas de compte ? "
+			android:textColor="@android:color/black"
+		/>
+        <TextView
+			android:id="@+id/signupTv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="créer un compte"
+			android:textColor="@android:color/black"
+		/>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
