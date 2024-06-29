@@ -7,10 +7,12 @@
 	tools:context=".ui.fragments.HomeFragment"
 >
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/programs_rv"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:text="home fragement"
+		android:layout_height="wrap_content"
+		tools:itemCount="3"
+		tools:listitem="@layout/fragment_program"
 	/>
 
 </FrameLayout>

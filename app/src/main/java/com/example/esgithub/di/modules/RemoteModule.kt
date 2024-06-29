@@ -3,6 +3,8 @@ package com.example.esgithub.di.modules
 import android.content.Context
 import com.example.esgithub.di.JsonConf
 import com.example.esgithub.services.AuthService
+import com.example.esgithub.services.ProgramService
+import com.example.esgithub.services.UserService
 import com.example.esgithub.utils.TokenManager
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -16,15 +18,31 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 const val AUTH_SERVICE = "authService"
+const val PROGRAM_SERVICE = "programService"
+const val USER_SERVICE = "userService"
 
 internal val remoteModule =
     module {
 
         single(named(AUTH_SERVICE)) { createRetrofitClient(get(), get<JsonConf>().baseUrl) }
+        single(named(PROGRAM_SERVICE)) { createRetrofitClient(get(), get<JsonConf>().baseUrl) }
+        single(named(USER_SERVICE)) { createRetrofitClient(get(), get<JsonConf>().baseUrl) }
 
         single {
             createWebService<AuthService>(
                 get(named(AUTH_SERVICE))
+            )
+        }
+
+        single {
+            createWebService<ProgramService>(
+                get(named(PROGRAM_SERVICE))
+            )
+        }
+
+        single {
+            createWebService<UserService>(
+                get(named(USER_SERVICE))
             )
         }
 
@@ -36,7 +54,7 @@ fun createAuthorizationInterceptor(context: Context): Interceptor {
         val token = TokenManager.getToken()
 
         val requestOriginal = chain.request()
-        val requestModifie =
+        val requestModifier =
             if (token != null) {
                 requestOriginal.newBuilder()
                     .header("Authorization", "Bearer $token")
@@ -45,7 +63,7 @@ fun createAuthorizationInterceptor(context: Context): Interceptor {
                 requestOriginal
             }
 
-        chain.proceed(requestModifie)
+        chain.proceed(requestModifier)
     }
 }
 

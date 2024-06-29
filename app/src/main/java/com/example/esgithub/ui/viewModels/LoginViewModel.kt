@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.esgithub.models.auth.LoginRequest
 import com.example.esgithub.models.auth.LoginResponse
-import com.example.esgithub.repositories.auth.AuthRepository
+import com.example.esgithub.repositories.AuthRepository
 import com.example.esgithub.utils.TokenManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo

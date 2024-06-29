@@ -1,4 +1,4 @@
-package com.example.esgithub.repositories.auth
+package com.example.esgithub.repositories
 
 import com.example.esgithub.models.auth.LoginRequest
 import com.example.esgithub.models.auth.LoginResponse

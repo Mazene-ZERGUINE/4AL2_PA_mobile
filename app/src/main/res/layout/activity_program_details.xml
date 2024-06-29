@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+	tools:context=".ui.view.ProgramDetailsActivity"
+>
+
+    <com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/appbar"
+		android:layout_width="match_parent"
+		android:layout_height="350dp"
+	>
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+			android:id="@+id/collapsing_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:fitsSystemWindows="true"
+			app:layout_scrollFlags="scroll|exitUntilCollapsed"
+			app:contentScrim="?attr/colorPrimary"
+		>
+
+
+            <TextView
+				android:id="@+id/program_code_source"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="10dp"
+			/>
+
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+	>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+		>
+
+            <View
+				android:layout_width="70dp"
+				android:layout_height="5dp"
+				android:layout_marginBottom="10dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+			/>
+
+
+            <LinearLayout
+				android:id="@+id/likes_comments"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_vertical"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+			>
+
+                <ImageButton
+					android:layout_width="wrap_content"
+					android:layout_height="48dp"
+					android:backgroundTint="@color/white"
+					android:contentDescription="comment"
+					android:src="@drawable/ic_comment"
+				/>
+
+                <TextView
+					android:id="@+id/comments_size_tv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="256"
+				/>
+
+
+                <ImageButton
+					android:layout_width="wrap_content"
+					android:layout_height="48dp"
+					android:backgroundTint="@color/white"
+					android:contentDescription="like"
+					android:src="@drawable/ic_like"
+				/>
+
+                <TextView
+					android:id="@+id/likes_size_iv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="150"
+				/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+				android:id="@+id/product_detail_info"
+				android:layout_width="match_parent"
+				android:padding="15dp"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				app:layout_constraintTop_toBottomOf="@id/likes_comments"
+			>
+
+                <TextView
+					android:id="@+id/program_createdBy_tv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="15dp"
+					android:text="Par : "
+				/>
+
+                <TextView
+					android:id="@+id/program_detail_createdAt_tv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="10dp"
+					android:text="Pubished at"
+					android:textSize="16dp"
+					android:textStyle="bold"
+				/>
+
+                <TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="10dp"
+					android:text="Description :"
+					android:textSize="20dp"
+					android:textStyle="bold"
+				/>
+
+                <TextView
+					android:id="@+id/program_details_description"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="15dp"
+					android:layout_marginBottom="10dp"
+					android:text="Description content Description content Description content Description contentvvDescription contentDescription contentDescription content Description contentDescription contentDescription contentDescription contentDescription content"
+					android:textSize="17dp"
+				/>
+
+
+
+            </LinearLayout>
+
+
+
+
+            <androidx.cardview.widget.CardView
+				android:id="@+id/comments_section"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="15dp"
+				app:cardCornerRadius="10dp"
+				android:backgroundTint="#F8F9FA"
+				app:layout_constraintTop_toBottomOf="@+id/product_detail_info"
+			>
+                <LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+				>
+
+
+                    <ProgressBar
+						android:id="@+id/comment_progress_bar"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_gravity="center"
+						android:visibility="gone"
+					/>
+                    <androidx.recyclerview.widget.RecyclerView
+						android:id="@+id/comments_rv"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						tools:listitem="@layout/fragment_comment"
+						tools:itemCount="4"
+						android:padding="15dp"
+					/>
+
+                    <EditText
+						android:id="@+id/add_comment_input"
+						android:layout_width="match_parent"
+						android:layout_height="67dp"
+						android:padding="10dp"
+						android:hint="User comments will be visible here."
+						android:layout_marginHorizontal="15dp"
+						android:inputType="textMultiLine"
+						android:gravity="top|start"
+						android:scrollbars="vertical"
+					/>
+
+                    <com.google.android.material.button.MaterialButton
+						android:id="@+id/publish_comment_btn"
+						android:layout_width="wrap_content"
+						android:textSize="15dp"
+						android:layout_height="40dp"
+						android:textColor="@color/black"
+						android:text="Publier"
+						android:textAllCaps="false"
+						android:layout_marginTop="10dp"
+						android:layout_marginStart="15dp"
+					/>
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

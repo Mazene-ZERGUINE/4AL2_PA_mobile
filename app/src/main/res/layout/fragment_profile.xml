@@ -5,12 +5,62 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".ui.fragments.ProfileFragment"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 >
 
-    <TextView
+
+    <androidx.cardview.widget.CardView
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:text="profile framgment"
-	/>
+		android:layout_height="wrap_content"
+		app:cardCornerRadius="20dp"
+		android:elevation="0dp"
+		android:backgroundTint="@color/white"
+		android:layout_marginTop="10dp"
+		app:cardElevation="0dp"
+	>
+
+        <LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="15dp"
+		>
+
+            <TextView
+				android:id="@+id/first_user_name_letter"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Z"
+				android:layout_marginEnd="10dp"
+				android:textSize="30sp"
+				android:background="@drawable/rounded_textview"
+				android:textColor="@android:color/white"
+				android:gravity="center"
+			/>
+
+            <LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+			>
+                <TextView
+					android:id="@+id/userNameTextView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Prenom Nom"
+					android:textStyle="bold"
+					android:textSize="20dp"
+				/>
+                <TextView
+					android:id="@+id/bioTv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					tools:text="Bio"
+					android:textSize="20dp"
+				/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>
