@@ -4,17 +4,18 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.esgithub.models.program.Comment
+import com.example.esgithub.models.program.request.CommentRequest
 import com.example.esgithub.repositories.ProgramRepository
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class CommentViewModel(private val programRepository: ProgramRepository) : ViewModel() {
-    private val disposBag = CompositeDisposable()
+    private val disposeBag = CompositeDisposable()
 
     val programComments = MutableLiveData<List<Comment>>()
 
-    fun loadProgramComments(programId: String)  {
+    fun loadProgramComments(programId: String) {
         this.getAllComments(programId)
     }
 
@@ -31,6 +32,12 @@ class CommentViewModel(private val programRepository: ProgramRepository) : ViewM
             {
                 Log.d("gettingComments", it.message.toString())
             }
-        ).addTo(disposBag)
+        ).addTo(disposeBag)
+    }
+
+    fun addComment(commentRequest: CommentRequest)  {
+        this.programRepository.addComment(commentRequest).observeOn(Schedulers.io()).subscribe {
+            loadProgramComments(commentRequest.programId)
+        }.addTo(disposeBag)
     }
 }

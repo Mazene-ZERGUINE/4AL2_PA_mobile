@@ -57,8 +57,8 @@ object TokenManager {
         }
     }
 
-    fun getUserIdFromToken(): Int {
-        return userIdFromToken.toInt()
+    fun getUserIdFromToken(): String {
+        return userIdFromToken
     }
 
     fun storeAccessToken(

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.esgithub.models.program.ProgramModel
+import com.example.esgithub.models.program.request.LikeRequest
 import com.example.esgithub.repositories.ProgramRepository
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
@@ -31,7 +32,7 @@ class ProgramViewModel(private val programRepository: ProgramRepository) : ViewM
         ).addTo(disposeBag)
     }
 
-    private fun commentsCountsByProgram(programList: List<ProgramModel>)  {
+    private fun commentsCountsByProgram(programList: List<ProgramModel>) {
         val initialCommentCounts = mutableMapOf<String, Int>()
 
         programList.forEach { program ->
@@ -43,5 +44,13 @@ class ProgramViewModel(private val programRepository: ProgramRepository) : ViewM
                     Log.d("commentsCount", initialCommentCounts[program.programId].toString())
                 }.addTo(disposeBag)
         }
+    }
+
+    fun addLikeToAProgram(likeRequest: LikeRequest) {
+        programRepository.addLike(likeRequest)
+            .observeOn(Schedulers.io())
+            .subscribe {
+                this.getProgramData()
+            }.addTo(disposeBag)
     }
 }
