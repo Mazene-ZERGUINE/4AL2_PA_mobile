@@ -16,11 +16,11 @@ class ProgramRepository(private val programService: ProgramService) {
         return programService.getProgramComments(programId)
     }
 
-    fun addComment(commentRequest: CommentRequest): Flowable<Unit>  {
+    fun addComment(commentRequest: CommentRequest): Flowable<Unit> {
         return this.programService.addComment(commentRequest)
     }
 
-    fun addLike(likeRequest: LikeRequest): Flowable<Unit>  {
+    fun addLike(likeRequest: LikeRequest): Flowable<Unit> {
         return this.programService.addLike(likeRequest)
     }
 }

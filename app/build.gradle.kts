@@ -46,6 +46,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
@@ -87,5 +91,4 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     implementation("com.squareup.picasso:picasso:2.71828")
-
 }

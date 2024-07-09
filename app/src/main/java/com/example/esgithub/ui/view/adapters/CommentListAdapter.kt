@@ -9,7 +9,6 @@ import com.example.esgithub.R
 import com.example.esgithub.models.program.Comment
 
 class CommentListAdapter(private val commentList: List<Comment>) : RecyclerView.Adapter<CommentListAdapter.CommentViewHolder>() {
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

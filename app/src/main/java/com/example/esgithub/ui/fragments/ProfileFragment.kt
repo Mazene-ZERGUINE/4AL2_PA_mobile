@@ -33,7 +33,7 @@ class ProfileFragment : Fragment() {
         return rootView
     }
 
-    private fun setCurrentUserData()  {
+    private fun setCurrentUserData() {
         profileViewModel.currentUserData.observe(viewLifecycleOwner) {
             userNameTv.text = it.firstName
         }

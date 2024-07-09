@@ -35,7 +35,7 @@ class CommentViewModel(private val programRepository: ProgramRepository) : ViewM
         ).addTo(disposeBag)
     }
 
-    fun addComment(commentRequest: CommentRequest)  {
+    fun addComment(commentRequest: CommentRequest) {
         this.programRepository.addComment(commentRequest).observeOn(Schedulers.io()).subscribe {
             loadProgramComments(commentRequest.programId)
         }.addTo(disposeBag)

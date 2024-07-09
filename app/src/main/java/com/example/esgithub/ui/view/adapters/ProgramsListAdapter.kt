@@ -105,7 +105,7 @@ class ProgramsListAdapter(
             }
         }
 
-        private fun setUserAvatar(avatarLink: String)  {
+        private fun setUserAvatar(avatarLink: String) {
             Picasso.get()
                 .load("$imageBaseUrl/$avatarLink")
                 .into(

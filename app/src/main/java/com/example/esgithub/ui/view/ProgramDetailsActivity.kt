@@ -66,13 +66,12 @@ class ProgramDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun addProgramComment()  {
+    private fun addProgramComment() {
         val comment = binding.addCommentInput.text.toString()
 
-        if (comment.isNotEmpty())
-            {
-                val commentRequest = CommentRequest(comment, TokenManager.getUserIdFromToken(), this.programId)
-                this.commentViewModel.addComment(commentRequest)
-            }
+        if (comment.isNotEmpty()) {
+            val commentRequest = CommentRequest(comment, TokenManager.getUserIdFromToken(), this.programId)
+            this.commentViewModel.addComment(commentRequest)
+        }
     }
 }

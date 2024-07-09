@@ -18,7 +18,7 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
         this.getCurrentUserData()
     }
 
-    private fun getCurrentUserData()  {
+    private fun getCurrentUserData() {
         userRepository.getCurrentUserInfo().observeOn(Schedulers.io()).subscribe(
             {
                 this.currentUserData.postValue(it)
