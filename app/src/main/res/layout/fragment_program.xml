@@ -1,152 +1,152 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <androidx.cardview.widget.CardView
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/productCard"
-	android:layout_width="347dp"
-	android:layout_height="190dp"
-	app:cardCornerRadius="20dp"
-	android:elevation="30dp"
-	app:cardElevation="0dp"
-	android:layout_marginEnd="10dp"
->
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/productCard"
+  android:layout_width="match_parent"
+  android:layout_marginLeft="50dp"
+  android:layout_marginRight="50dp"
+  android:layout_height="wrap_content"
+  app:cardCornerRadius="20dp"
+  android:elevation="30dp"
+  app:cardElevation="0dp"
+  android:layout_marginBottom="25dp"
+  android:layout_marginEnd="10dp"
+  >
 
     <LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:orientation="vertical"
-	>
-
-
-
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:background="@color/programs">
 
         <LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="vertical"
-			android:padding="15dp"
-		>
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:padding="15dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:backgroundTint="@color/white"
-			>
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:backgroundTint="@color/white">
 
                 <TextView
-					android:id="@+id/productTitleTv"
-					android:layout_width="252dp"
-					android:layout_height="wrap_content"
-					android:ellipsize="marquee"
-					android:maxLines="1"
-					tools:text="Javascript"
-					android:textSize="24sp"
-					android:textStyle="bold"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
-				/>
+                  android:id="@+id/productTitleTv"
+                  android:layout_width="252dp"
+                  android:layout_height="wrap_content"
+                  android:ellipsize="marquee"
+                  android:maxLines="1"
+                  android:textSize="24sp"
+                  android:textStyle="bold"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:textColor="@color/white"
+                  tools:text="Javascript" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-				android:id="@+id/productPublishedAt"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:text="Published at"
-				android:textStyle="bold"
-			/>
+              android:id="@+id/productPublishedAt"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="10dp"
+              android:text="Published at"
+              android:textColor="@color/text_1"
+              android:textStyle="bold" />
+
+            <!-- Description TextView -->
+            <TextView
+              android:id="@+id/programDescription"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Description goes here"
+              android:textColor="@color/white"
+              android:textSize="14sp"
+              android:layout_marginBottom="10dp"
+              android:maxLines="3"
+              android:ellipsize="end" />
 
             <LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="center_vertical"
-				android:orientation="horizontal"
-			>
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-					android:id="@+id/profilePicture"
-					android:layout_width="35dp"
-					android:layout_height="35dp"
-					android:src="@drawable/ic_user_profile"
-					app:civ_border_color="@color/black"
-					app:civ_border_width="2dp"
-				/>
+                  android:id="@+id/profilePicture"
+                  android:layout_width="35dp"
+                  android:layout_height="35dp"
+                  android:src="@drawable/ic_user_profile"
+                  app:civ_border_color="@color/black"
+                  app:civ_border_width="2dp" />
 
                 <TextView
-					android:id="@+id/profileNameTv"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
-					android:text="profile name"
-					android:textStyle="bold"
-				/>
+                  android:id="@+id/profileNameTv"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="10dp"
+                  android:text="profile name"
+                  android:textColor="@color/white"
+                  android:textStyle="bold" />
 
             </LinearLayout>
 
-
             <LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="center"
-				android:layout_marginTop="10dp"
-			>
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:gravity="center">
 
                 <LinearLayout
-					android:id="@+id/linearLayout"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:gravity="center_vertical"
-					android:layout_marginEnd="30dp"
-				>
+                  android:id="@+id/linearLayout"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginEnd="30dp"
+                  android:gravity="center_vertical">
 
                     <ImageButton
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:minWidth="48dp"
-						android:minHeight="48dp"
-						android:background="@null"
-						android:src="@drawable/ic_comment"
-						android:contentDescription="comment"
-					/>
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:background="@null"
+                      android:contentDescription="comment"
+                      android:minWidth="48dp"
+                      android:minHeight="48dp"
+                      android:src="@drawable/ic_comment" />
 
                     <TextView
-						android:id="@+id/comments_size_tv"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="256"
-					/>
+                      android:id="@+id/comments_size_tv"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="256" />
                 </LinearLayout>
 
                 <LinearLayout
-					android:id="@+id/linearLayout3"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:gravity="center_vertical"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
-				>
+                  android:id="@+id/linearLayout3"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
 
                     <ImageButton
-						android:id="@+id/like_btn"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:background="@null"
-						android:minWidth="48dp"
-						android:minHeight="48dp"
-						android:src="@drawable/ic_like"
-						android:contentDescription="like"
-					/>
+                      android:id="@+id/like_btn"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:background="@null"
+                      android:contentDescription="like"
+                      android:minWidth="48dp"
+                      android:minHeight="48dp"
+                      android:src="@drawable/ic_like" />
 
                     <TextView
-						android:id="@+id/likes_size_iv"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="150"
-					/>
+                      android:id="@+id/likes_size_iv"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="150" />
                 </LinearLayout>
             </LinearLayout>
 

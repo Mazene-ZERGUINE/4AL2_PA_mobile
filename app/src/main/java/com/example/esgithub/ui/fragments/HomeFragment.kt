@@ -81,7 +81,7 @@ class HomeFragment : Fragment(), OnProgramClicked, OnProgramLiked {
         commentCounts: Map<String, Int>
     ) {
         programListRv.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         programListRv.adapter =
             ProgramsListAdapter(
                 programs,
