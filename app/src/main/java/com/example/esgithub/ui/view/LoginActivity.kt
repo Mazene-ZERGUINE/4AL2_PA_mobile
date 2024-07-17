@@ -1,5 +1,6 @@
 package com.example.esgithub.ui.view
 
+import NotifierService
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -22,12 +23,16 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var passwordInput: TextInputEditText
     private lateinit var signupTv: TextView
 
+    private lateinit var notifierService: NotifierService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         parseAndInjectConfiguration()
         injectModuleDependencies(this)
+
+        notifierService = NotifierService(this)
 
         loginButton = findViewById(R.id.button)
         emailInput = findViewById(R.id.emailEt)
@@ -48,12 +53,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun observeLoginError() {
         loginViewModel.loginError.observe(this) { _ ->
-            /*Utils.displayToast(
-                applicationContext,
-                R.layout.error_toast,
-                "Ce compte n'éxiste pas",
-                Toast.LENGTH_SHORT
-            )*/
+            notifierService.showErrorToast("this account do not exist")
             Log.d("login", "Ce compte n'éxiste pas")
         }
     }
@@ -65,8 +65,7 @@ class LoginActivity : AppCompatActivity() {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             loginViewModel.login(email, password)
         } else {
-            // Utils.displayToast(applicationContext, R.layout.error_toast, "Merci de remplire tous les champs!", Toast.LENGTH_SHORT)
-            Log.d("login", "Merci de remplire tous les champs!")
+            notifierService.showErrorToast("email and password fields can not be empty")
         }
     }
 
@@ -75,14 +74,7 @@ class LoginActivity : AppCompatActivity() {
             val token: String = loginResponse.getToken()
             TokenManager.setToken(token)
             TokenManager.setPseudoAndUserIdFromToken()
-
-           /* Utils.displayToast(
-                applicationContext,
-                R.layout.success_toast,
-                "Bonjour ^^",
-                Toast.LENGTH_SHORT
-            )*/
-            Log.d("login", token)
+            this.notifierService.showSuccessToast("logged in")
             TokenManager.storeAccessToken(this, loginResponse.getToken())
             val mainActivityIntent = Intent(this, MainActivity::class.java)
             startActivity(mainActivityIntent)

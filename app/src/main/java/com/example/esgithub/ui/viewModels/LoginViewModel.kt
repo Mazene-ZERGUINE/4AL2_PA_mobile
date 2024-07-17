@@ -15,6 +15,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {
     private val disposBag = CompositeDisposable()
 
+
     private val _loginResult = MutableLiveData<LoginResponse>()
     val loginResult: LiveData<LoginResponse> = _loginResult
 
