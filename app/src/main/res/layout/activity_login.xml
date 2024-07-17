@@ -8,17 +8,14 @@
   tools:context=".ui.view.LoginActivity"
   android:background="@color/main_dark">
 
-    <TextView
+    <ImageView
+      android:id="@+id/logoImageView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginStart="80dp"
       android:layout_marginBottom="40dp"
-      android:gravity="center"
-      android:lineHeight="40dp"
-      android:paddingHorizontal="20dp"
-      android:text="ESGithub"
-      android:textColor="@color/text_1"
-      android:textSize="60dp"
-      android:textStyle="bold|italic"
+      android:contentDescription="@string/app_name"
+      android:src="@drawable/logo"
       app:layout_constraintBottom_toTopOf="@+id/connectTv"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
