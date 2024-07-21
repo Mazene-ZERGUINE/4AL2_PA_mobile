@@ -169,6 +169,7 @@ android:layout_below="@+id/linlay1">
               android:textSize="13sp" />
 
             <TextView
+              android:id="@+id/emailTv"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:fontFamily="sans-serif-light"
@@ -198,6 +199,7 @@ android:layout_below="@+id/linlay1">
               android:textSize="13sp" />
 
             <TextView
+              android:id="@+id/userNameTv2"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:fontFamily="sans-serif-light"
@@ -230,6 +232,7 @@ android:layout_below="@+id/linlay1">
           android:orientation="vertical">
 
             <TextView
+              android:id="@+id/bioTv"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:fontFamily="sans-serif-light"
