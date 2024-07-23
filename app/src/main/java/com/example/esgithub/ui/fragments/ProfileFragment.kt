@@ -1,8 +1,6 @@
 package com.example.esgithub.ui.fragments
 
-import android.net.Uri
 import android.os.Bundle
-import android.service.autofill.UserData
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.esgithub.R
-import com.example.esgithub.models.network.FollowerRelationship
-import com.example.esgithub.models.user.UserDataModel
 import com.example.esgithub.ui.viewModels.ProfileViewModel
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.w3c.dom.Text
 
 class ProfileFragment : Fragment() {
     private val profileViewModel: ProfileViewModel by viewModel()
@@ -29,7 +24,6 @@ class ProfileFragment : Fragment() {
     private lateinit var userName2Tv: TextView
 
     private val imageBaseUrl: String = "http://"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +42,6 @@ class ProfileFragment : Fragment() {
         bioTv = rootView.findViewById(R.id.bioTv)
         userName2Tv = rootView.findViewById(R.id.userNameTv2)
 
-
         setCurrentUserData()
 
         return rootView
@@ -62,17 +55,21 @@ class ProfileFragment : Fragment() {
             bioTv.text = it.bio
             userName2Tv.text = it.userName
         }
-
     }
 
     private fun setUserAvatar(avatarLink: String) {
-        Picasso.get()
+        Picasso
+            .get()
             .load("$imageBaseUrl/$avatarLink")
-            .into(userImage, object : Callback {
-                override fun onSuccess() {}
-                override fun onError(e: Exception?) {
-                    Log.e("Picasso", "Error loading image: ${e?.message}")
+            .into(
+                userImage,
+                object : Callback {
+                    override fun onSuccess() {}
+
+                    override fun onError(e: Exception?) {
+                        Log.e("Picasso", "Error loading image: ${e?.message}")
+                    }
                 }
-            })
+            )
     }
 }

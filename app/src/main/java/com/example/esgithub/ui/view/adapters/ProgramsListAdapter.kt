@@ -1,6 +1,5 @@
 package com.example.esgithub.ui.view.adapters
 
-import android.media.session.MediaSession.Token
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,15 +17,13 @@ import com.example.esgithub.ui.view.adapters.interfaces.OnProgramLiked
 import com.example.esgithub.utils.TokenManager
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 class ProgramsListAdapter(
     private val programsList: List<ProgramModel>,
     private val commentCounts: Map<String, Int>,
     private val onProgramClicked: OnProgramClicked,
     private val onProgramLiked: OnProgramLiked
-) :
-    RecyclerView.Adapter<ProgramsListAdapter.ProgramViewHolder>() {
+) : RecyclerView.Adapter<ProgramsListAdapter.ProgramViewHolder>() {
     companion object {
         const val PROGRAM_ID = "program_id"
         const val PROGRAM_LIKES_SIZE = "program_likes_size"
@@ -65,7 +62,9 @@ class ProgramsListAdapter(
         holder.bind(currentProgram)
     }
 
-    inner class ProgramViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ProgramViewHolder(
+        itemView: View
+    ) : RecyclerView.ViewHolder(itemView) {
         private var productTitleTv: TextView
         private var publishedAtTv: TextView
         private var profileNameTv: TextView
@@ -111,9 +110,7 @@ class ProgramsListAdapter(
             }
         }
 
-        private fun getLikesCountOfAProgram(programData: ProgramModel): Int {
-            return programData.reactions.count { it.type == ReactionType.LIKE }
-        }
+        private fun getLikesCountOfAProgram(programData: ProgramModel): Int = programData.reactions.count { it.type == ReactionType.LIKE }
 
         private fun getUserReaction(programData: ProgramModel): Boolean {
             val userId = TokenManager.getUserIdFromToken()
@@ -125,14 +122,19 @@ class ProgramsListAdapter(
         }
 
         private fun setUserAvatar(avatarLink: String) {
-            Picasso.get()
+            Picasso
+                .get()
                 .load("$imageBaseUrl/$avatarLink")
-                .into(userProgramAvatar, object : Callback {
-                    override fun onSuccess() {}
-                    override fun onError(e: Exception?) {
-                        Log.e("Picasso", "Error loading image: ${e?.message}")
+                .into(
+                    userProgramAvatar,
+                    object : Callback {
+                        override fun onSuccess() {}
+
+                        override fun onError(e: Exception?) {
+                            Log.e("Picasso", "Error loading image: ${e?.message}")
+                        }
                     }
-                })
+                )
         }
     }
 }

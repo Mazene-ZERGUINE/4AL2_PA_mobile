@@ -12,9 +12,10 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {
+class LoginViewModel(
+    private val authRepository: AuthRepository
+) : ViewModel() {
     private val disposBag = CompositeDisposable()
-
 
     private val _loginResult = MutableLiveData<LoginResponse>()
     val loginResult: LiveData<LoginResponse> = _loginResult
@@ -30,7 +31,8 @@ class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {
 
         Log.d("palyload", payload.toString())
 
-        authRepository.login(payload)
+        authRepository
+            .login(payload)
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { response ->
