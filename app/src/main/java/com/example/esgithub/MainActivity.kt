@@ -1,39 +1,55 @@
-@file:Suppress("FunctionName")
-
 package com.example.esgithub
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.esgithub.ui.theme.EsgithubTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            EsgithubTheme {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+        setContentView(R.layout.activity_main)
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.host_frag) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        NavigationUI.setupWithNavController(bottomNavigation, navController)
+
+        this.listenToBottomNavigation(bottomNavigation, navController)
+    }
+
+    private fun listenToBottomNavigation(
+        bottomNavigation: BottomNavigationView,
+        navController: NavController
+    ) {
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.homeFragment -> {
+                    this.onNavigationItemClick(navController, R.id.homeFragment)
                 }
+                R.id.groupsFragment -> {
+                    this.onNavigationItemClick(navController, R.id.groupsFragment)
+                }
+                R.id.likedFragment -> {
+                    this.onNavigationItemClick(navController, R.id.likedFragment)
+                }
+                R.id.profileFragment -> {
+                    this.onNavigationItemClick(navController, R.id.profileFragment)
+                }
+                else -> false
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+    private fun onNavigationItemClick(
+        navController: NavController,
+        id: Int
+    ): Boolean {
+        navController.navigate(id)
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EsgithubTheme {
-        Greeting("Android")
+        return true
     }
 }
